@@ -26,6 +26,9 @@ WAS(웹 애플리케이션 서버=동적서버)
 
 
 7.  jsp 구성요소( pageDirctive, <% %> )  + jsp에서의 request, response 사용 등
+map반복?    파라미터 동작,  redirct
+
+
 
 
 

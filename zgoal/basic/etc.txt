@@ -10,9 +10,6 @@
 2도 알고리즘 없이 풀 수 있는거 조금은 있는데...
 
 
-retun TYpe  int[]
- ==>  List<Integer> 로 리턴해도 solve됩니다.
-
 
 
 
