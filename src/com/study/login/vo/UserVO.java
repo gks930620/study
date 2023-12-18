@@ -11,6 +11,8 @@ public class UserVO {
     private String userRole;
 
     public UserVO(){
+        System.out.println("aaaa");
+        //이것저것
     }
 
     public UserVO(String userId, String userName, String userPass, String userRole) {

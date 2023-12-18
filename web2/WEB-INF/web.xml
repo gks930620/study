@@ -13,6 +13,13 @@
 <!--        <url-pattern>/sum.do</url-pattern>-->
 <!--    </servlet-mapping>-->
 
-    
+
+    <servlet>
+        <servlet-name>DriverLoader</servlet-name>
+        <servlet-class>com.study.servlet.DriverLoader</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+
 
 </web-app>
