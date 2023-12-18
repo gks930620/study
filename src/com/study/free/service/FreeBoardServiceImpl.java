@@ -28,6 +28,15 @@ public class FreeBoardServiceImpl  implements IFreeBoardService{
 
     @Override
     public void modifyBoard(FreeBoardVO freeBoard) throws BizPasswordNotMatchedException {
+        //freeBoard는 사용자가 입력한 데이터
+        FreeBoardVO vo = freeBoardDao.getBoard(freeBoard.getBoNo());  //vo는 현재 DB에 있는 데이터
+        if(freeBoard.getBoPass().equals(vo.getBoPass())){
+            //작성자니까 비밀번호 맞출 수 있는 경우
+            freeBoardDao.updateBoard(freeBoard);   //vo 에요 freeBoard에요?
+        }else{
+            throw new BizPasswordNotMatchedException("비밀번호 틀림. 사용자가 아님");
+        }
+
     }
 
     @Override

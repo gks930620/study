@@ -117,7 +117,34 @@ public class FreeBoardDaoOracle implements IFreeBoardDao {
 
     @Override
     public int updateBoard(FreeBoardVO freeBoard) {
-        return 0;
+        Connection conn=null;
+        PreparedStatement pstmt=null;
+        ResultSet rs=null;
+        try{
+            conn=DriverManager.getConnection("jdbc:apache:commons:dbcp:study");
+            StringBuffer sb=new StringBuffer();
+            sb.append(" UPDATE free_board SET               ");
+            sb.append(" bo_title=?             ,            ");
+            sb.append(" bo_category=?          ,            ");
+            sb.append(" bo_content=?           ,            ");
+            sb.append(" bo_mod_date=sysdate                 ");
+            sb.append(" WHERE bo_no= ?                      ");
+            pstmt=conn.prepareStatement(sb.toString());
+            int index=1;
+            pstmt.setString(index++ , freeBoard.getBoTitle());
+            pstmt.setString(index++ , freeBoard.getBoCategory());
+            pstmt.setString(index++ , freeBoard.getBoContent());
+            pstmt.setInt(index++ , freeBoard.getBoNo());
+
+            int row = pstmt.executeUpdate();
+            return  row;
+        }catch (SQLException e){
+            throw new DaoException("free update 도중 에러 ",e);
+        }finally {
+            if (conn != null)  try{conn.close(); }   catch (SQLException e){};
+            if (pstmt != null) try{pstmt.close(); }   catch (SQLException e){};
+            if (rs != null)    try{rs.close(); }   catch (SQLException e){};
+        }
     }
 
     @Override
