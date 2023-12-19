@@ -17,16 +17,7 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/inc/top.jsp" %>
-<%
-    int boNo = Integer.parseInt(request.getParameter("boNo"));
-    IFreeBoardService freeBoardService = new FreeBoardServiceImpl();
-    try {
-        FreeBoardVO freeBoard = freeBoardService.getBoard(boNo);
-        request.setAttribute("freeBoard", freeBoard);
-    } catch (BizNotFoundException bne) {
-        request.setAttribute("bne", bne);
-    }
-%>
+
 
 <c:if test="${bne!=null}">
     <div class="alert alert-warning">

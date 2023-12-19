@@ -24,8 +24,6 @@ public class SumServlet   extends HttpServlet {
             out.println("<li>1부터" + i + "까지 합 : "+sum + "</li>" );
         }
         out.println("</ul></body></html>");
-
-
     }
 
 }

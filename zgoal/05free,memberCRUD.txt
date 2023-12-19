@@ -21,6 +21,16 @@ member : 회원정보.  비밀번호도 바꿀 수 있어야합니다.
 
 
 
+view : notFoundException
+
+freeModify, delete : PassWordNotMatchedException
+
+memberRegist : duplicateExcpetion
+
+
+
+
+
 
 
 

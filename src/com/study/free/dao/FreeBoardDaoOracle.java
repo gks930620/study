@@ -149,11 +149,69 @@ public class FreeBoardDaoOracle implements IFreeBoardDao {
 
     @Override
     public int deleteBoard(FreeBoardVO freeBoard) {
-        return 0;
+        Connection conn=null;
+        PreparedStatement pstmt=null;
+        ResultSet rs=null;
+        try{
+            conn=DriverManager.getConnection("jdbc:apache:commons:dbcp:study");
+            StringBuffer sb=new StringBuffer();
+            sb.append(" UPDATE free_board SET               ");
+            sb.append(" bo_del_yn='Y'                       ");
+            sb.append(" WHERE bo_no= ?                      ");
+
+            pstmt=conn.prepareStatement(sb.toString());
+            pstmt.setInt(1 , freeBoard.getBoNo());
+            int row = pstmt.executeUpdate();
+            return  row;
+
+        }catch (SQLException e){
+            throw  new DaoException("free delete 도중 에러 " ,e);
+        }finally {
+            if (conn != null)  try{conn.close(); }   catch (SQLException e){};
+            if (pstmt != null) try{pstmt.close(); }   catch (SQLException e){};
+            if (rs != null)    try{rs.close(); }   catch (SQLException e){};
+        }
     }
 
     @Override
     public int insertBoard(FreeBoardVO freeBoard) {
-        return 0;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try{
+            conn = DriverManager.getConnection("jdbc:apache:commons:dbcp:study");
+            StringBuffer sb = new StringBuffer();
+            sb.append("   INSERT INTO free_board (                                                   ");
+            sb.append("       bo_no                         , bo_title    , bo_category       ,      ");
+            sb.append("       bo_writer                     , bo_pass     , bo_content        ,      ");
+            sb.append("       bo_hit                        ,                                        ");
+            sb.append("       bo_reg_date                   ,                                        ");
+            sb.append("       bo_mod_date                   ,                                        ");
+            sb.append("       bo_del_yn                                                              ");
+            sb.append("   ) VALUES (                                                                 ");
+            sb.append("       seq_free_board.nextval         , ?           , ?                 ,     ");
+            sb.append("       ?                              , ?           , ?                 ,     ");
+            sb.append("       0                              ,                                       ");
+            sb.append("       sysdate                        ,                                       ");
+            sb.append("       null                           ,                                       ");
+            sb.append("       'N'                                                                    ");
+            sb.append("  )                                                                           ");
+            pstmt = conn.prepareStatement(sb.toString());
+
+            int index=1;
+            pstmt.setString(index++, freeBoard.getBoTitle() );
+            pstmt.setString(index++, freeBoard.getBoCategory() );
+            pstmt.setString(index++, freeBoard.getBoWriter() );
+            pstmt.setString(index++, freeBoard.getBoPass() );
+            pstmt.setString(index++, freeBoard.getBoContent() );
+            int row=pstmt.executeUpdate();
+            return  row;
+        } catch (SQLException e) {
+            throw  new DaoException("free insert 도중 에러" , e);
+        } finally {
+            if (conn != null)  try{conn.close(); }   catch (SQLException e){};
+            if (pstmt != null) try{pstmt.close(); }   catch (SQLException e){};
+            if (rs != null)    try{rs.close(); }   catch (SQLException e){};
+        }
     }
 }

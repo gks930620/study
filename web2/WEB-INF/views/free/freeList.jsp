@@ -17,15 +17,6 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/inc/top.jsp" %>
-<%
-
-    IFreeBoardService freeBoardService=new FreeBoardServiceImpl();
-    List<FreeBoardVO> freeBoardList=freeBoardService.getBoardList();
-    request.setAttribute("freeBoardList",freeBoardList);
-
-
-
-%>
 
 
 <div class="container">
