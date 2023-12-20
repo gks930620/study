@@ -23,7 +23,7 @@
     <div class="alert alert-warning">
         해당 글이 존재하지 않습니다.
     </div>
-    <a href="freeList.jsp" class="btn btn-default btn-sm">
+    <a href="freeList.wow" class="btn btn-default btn-sm">
             <span class="glyphicon glyphicon-list"
                   aria-hidden="true">
             </span> &nbsp;목록
@@ -77,12 +77,12 @@
             <tr>
                 <td colspan="2">
                     <div class="pull-left">
-                        <a href="freeList.jsp" class="btn btn-default btn-sm"> <span class="glyphicon glyphicon-list"
+                        <a href="freeList.wow" class="btn btn-default btn-sm"> <span class="glyphicon glyphicon-list"
                                                                                      aria-hidden="true"></span> &nbsp;&nbsp;목록
                         </a>
                     </div>
                     <div class="pull-right">
-                        <a href="freeEdit.jsp?boNo=${freeBoard.boNo}" class="btn btn-success btn-sm"> <span
+                        <a href="freeEdit.wow?boNo=${freeBoard.boNo}" class="btn btn-success btn-sm"> <span
                                 class="glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp;&nbsp;수정
                         </a>
                     </div>

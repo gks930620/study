@@ -13,11 +13,7 @@ WEB-INF : 브라우저에서 직접 접근 할 수 없는 폴더.
 
 
 
-모델1,모델2  그리고 MVC패턴이 뭔지
-
-
-
-
+모델1,모델2  그리고 MVC패턴
 1요청 1서블릿
 FrontController
 Command패턴 (interface)

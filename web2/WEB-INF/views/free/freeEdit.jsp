@@ -19,22 +19,11 @@
 <%@ include file="/WEB-INF/inc/top.jsp" %>
 
 
-<%
-    int boNo = Integer.parseInt(request.getParameter("boNo"));
-    IFreeBoardService freeBoardService = new FreeBoardServiceImpl();
-    try {
-        FreeBoardVO freeBoard = freeBoardService.getBoard(boNo);
-        request.setAttribute("freeBoard", freeBoard);
-    } catch (BizNotFoundException bne) {
-        request.setAttribute("bne", bne);
-    }
-
-%>
  <c:if test="${bne!=null}">
     <div class="alert alert-warning">
         해당 글이 존재하지 않습니다.
     </div>
-    <a href="freeList.jsp" class="btn btn-default btn-sm">
+    <a href="freeList.wow" class="btn btn-default btn-sm">
 		<span class="glyphicon glyphicon-list"
               aria-hidden="true">
 		</span> &nbsp;목록
@@ -49,7 +38,7 @@
                 자유게시판 - <small>글 수정</small>
             </h3>
         </div>
-        <form action="freeModify.jsp" method="post">
+        <form action="freeModify.wow" method="post">
             <table class="table table-striped table-bordered">
                 <colgroup>
                     <col width="20%"/>
@@ -107,7 +96,7 @@
                 <tr>
                     <td colspan="2">
                         <div class="pull-left">
-                            <a href="freeList.jsp" class="btn btn-default btn-sm"> <span
+                            <a href="freeList.wow" class="btn btn-default btn-sm"> <span
                                     class="glyphicon glyphicon-list" aria-hidden="true"></span> &nbsp;&nbsp;목록
                             </a>
                         </div>
@@ -117,7 +106,7 @@
                                 <span class="glyphicon glyphicon-save" aria-hidden="true"></span> &nbsp;&nbsp;저장
                             </button>
 
-                            <button type="submit" formaction="freeDelete.jsp" class="btn btn-sm btn-danger">
+                            <button type="submit" formaction="freeDelete.wow" class="btn btn-sm btn-danger">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> &nbsp;&nbsp;삭제
                             </button>
 

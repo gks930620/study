@@ -1,4 +1,4 @@
-package com.study.servlet;
+package com.study.servlet.etc;
 
 import com.study.exception.BizNotFoundException;
 import com.study.free.service.FreeBoardServiceImpl;
@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("*.wow")
 public class BFrontServlet extends HttpServlet {
     //servlet하나가 모든요청을 앞에서 처리하기때문에 Front라고 합니다.
 

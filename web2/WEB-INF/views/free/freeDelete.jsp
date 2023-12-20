@@ -21,18 +21,7 @@
 <body>
 <%@include file="/WEB-INF/inc/top.jsp"%>
 
-<jsp:useBean id="freeBoard" class="com.study.free.vo.FreeBoardVO"></jsp:useBean>
-<jsp:setProperty name="freeBoard" property="*"></jsp:setProperty>
 
-<%
-	IFreeBoardService freeBoardService=new FreeBoardServiceImpl();
-	try{
-		freeBoardService.removeBoard(freeBoard);
-	}catch (BizPasswordNotMatchedException bnf){
-		request.setAttribute("bnf" , bnf);
-	}
-%>
-	
 
  <div class="container">	
 	<h3>회원 정보 삭제</h3>
@@ -46,7 +35,7 @@
 			정상적으로 삭제했습니다.
 		</div>
 	 </c:if>
-	<a href="freeList.jsp" class="btn btn-default btn-sm">
+	<a href="freeList.wow" class="btn btn-default btn-sm">
 		<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
 		&nbsp;목록
 	</a>

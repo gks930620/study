@@ -21,17 +21,11 @@
 </head>
 <body>
 <%@include file="/WEB-INF/inc/top.jsp" %>
-<jsp:useBean id="freeBoard" class="com.study.free.vo.FreeBoardVO"></jsp:useBean>
-<jsp:setProperty name="freeBoard" property="*"></jsp:setProperty>
-<%
 
-    IFreeBoardService freeBoardService=new FreeBoardServiceImpl();
-    freeBoardService.registBoard(freeBoard);
-%>
 <div class="alert alert-success">
     정상적으로 글이 되었습니다.
 </div>
-<a href="freeList.jsp?" class="btn btn-default btn-sm">
+<a href="freeList.wow?" class="btn btn-default btn-sm">
     <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
     &nbsp;목록
 </a>

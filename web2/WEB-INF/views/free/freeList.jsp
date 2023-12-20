@@ -25,7 +25,7 @@
     </div>
     <div class="row">
         <div class="col-sm-2 col-sm-offset-10 text-right" style="margin-bottom: 5px;">
-            <a href="freeForm.jsp" class="btn btn-primary btn-sm">
+            <a href="freeForm.wow" class="btn btn-primary btn-sm">
                 <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 &nbsp;새글쓰기
             </a>
@@ -56,7 +56,7 @@
                 <td>${freeBoard.boNo}</td>
                 <td>${freeBoard.boCategory}</td>
                 <td class="text-left">
-                    <a href="freeView.jsp?boNo=${freeBoard.boNo}">
+                    <a href="freeView.wow?boNo=${freeBoard.boNo}">
                             ${freeBoard.boTitle}
                     </a>
                 </td>
