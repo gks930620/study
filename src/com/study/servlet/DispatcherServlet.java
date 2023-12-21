@@ -12,7 +12,7 @@ import java.util.Map;
 
 //Spring에서 실제로 FrontServlet의 역할을 하는 클래스가 DispatcherServlet이라 그냥 똑같이 만들어봤어요
 
-@WebServlet("*.wow")
+@WebServlet(urlPatterns = {"*.wow"}, loadOnStartup = 1)
 public class DispatcherServlet  extends HttpServlet {
     private  RequestMappingHandlerMapping handlerMapping;
 
@@ -34,7 +34,7 @@ public class DispatcherServlet  extends HttpServlet {
     }
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("utf-8");
+        //req.setCharacterEncoding("utf-8");
         String uri = req.getRequestURI();
         Handler handler = handlerMapping.getHandler(uri);
 
@@ -49,6 +49,8 @@ public class DispatcherServlet  extends HttpServlet {
             String viewPage = handler.process(req, resp);  //구현체들 전부 req 타입 바꿔주세요
             // /WEB-INF/views   .jsp는 공통
             if(viewPage.startsWith("redirect:")){
+                viewPage=viewPage.substring("redirect:".length());
+                resp.sendRedirect(viewPage);
                 return;
             }
             viewPage= "/WEB-INF/views/" + viewPage + ".jsp";

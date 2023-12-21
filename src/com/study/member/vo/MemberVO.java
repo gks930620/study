@@ -4,24 +4,38 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class MemberVO {
-    private String memId;                   /* 회원아이디 */
-    private String memPass;                 /* 회원비밀번호 */
-    private String memName;                 /* 회원이름 */
-    private String memBir;                  /* 회원생년월일 */
-    private String memZip;                  /* 회원우편번호 */
-    private String memAdd1;                 /* 회원주소 */
-    private String memAdd2;                 /* 회원상세주소 */
-    private String memHp;                   /* 회원전화번호 */
-    private String memMail;                 /* 회원이메일 */
-    private String memJob;                  /* 회원직업 */
-    private String memHobby;                /* 회원취미 */
-    private int memMileage;                 /* 회원마일리지 */
-    private String memDelYn;                /* 회원삭제여부 */
+    private String memId;        /* 회원아이디 */
+    private String memPass;      /* 회원비밀번호 */
+    private String memName;      /* 회원이름 */
+    private String memBir;       /* 회원생년월일 */
+    private String memZip;       /* 회원우편번호 */
+    private String memAdd1;      /* 회원주소 */
+    private String memAdd2;      /* 회원상세주소 */
+    private String memHp;        /* 회원전화번호 */
+    private String memMail;      /* 회원이메일 */
+    private String memJob;       /* 회원직업 */
+    private String memHobby;     /* 회원취미 */
+    private int memMileage;      /* 회원마일리지 */
+    private String memDelYn;     /* 회원삭제여부 */
 
+    public MemberVO (){
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
+
+    public MemberVO(String memId, String memPass, String memName, String memBir, String memZip, String memAdd1, String memAdd2, String memHp, String memMail, String memJob, String memHobby, int memMileage, String memDelYn) {
+        this.memId = memId;
+        this.memPass = memPass;
+        this.memName = memName;
+        this.memBir = memBir;
+        this.memZip = memZip;
+        this.memAdd1 = memAdd1;
+        this.memAdd2 = memAdd2;
+        this.memHp = memHp;
+        this.memMail = memMail;
+        this.memJob = memJob;
+        this.memHobby = memHobby;
+        this.memMileage = memMileage;
+        this.memDelYn = memDelYn;
     }
 
     public String getMemId() {
@@ -126,5 +140,10 @@ public class MemberVO {
 
     public void setMemDelYn(String memDelYn) {
         this.memDelYn = memDelYn;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 }

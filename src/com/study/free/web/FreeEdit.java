@@ -1,5 +1,6 @@
 package com.study.free.web;
 
+import com.study.common.vo.ResultMessageVO;
 import com.study.exception.BizNotFoundException;
 import com.study.free.service.FreeBoardServiceImpl;
 import com.study.free.service.IFreeBoardService;
@@ -18,9 +19,13 @@ public class FreeEdit implements Handler {
         try {
             FreeBoardVO freeBoard = freeBoardService.getBoard(boNo);
             req.setAttribute("freeBoard", freeBoard);
-        } catch (BizNotFoundException bne) {
-            req.setAttribute("bne", bne);
-        }
         return "free/freeEdit";
+        } catch (BizNotFoundException bne) {
+            ResultMessageVO resultMessageVO=new ResultMessageVO();
+            resultMessageVO.messageSetting
+                    (true,"free edit 못찾음" , "찾기 실패 " , "/free/freeList.wow" , "목록으로");
+            req.setAttribute("resultMessageVO",resultMessageVO);
+            return  "common/message";
+        }
     }
 }

@@ -19,19 +19,7 @@
 <%@ include file="/WEB-INF/inc/top.jsp" %>
 
 
- <c:if test="${bne!=null}">
-    <div class="alert alert-warning">
-        해당 글이 존재하지 않습니다.
-    </div>
-    <a href="freeList.wow" class="btn btn-default btn-sm">
-		<span class="glyphicon glyphicon-list"
-              aria-hidden="true">
-		</span> &nbsp;목록
-    </a>
-</c:if>
 
-
-<c:if test="${freeBoard!=null}">
     <div class="container">
         <div class="page-header">
             <h3>
@@ -119,7 +107,7 @@
 
     </div>
     <!-- container -->
-</c:if>
+
 </body>
 </html>
 

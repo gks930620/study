@@ -1,5 +1,6 @@
 package com.study.free.web;
 
+import com.study.common.vo.ResultMessageVO;
 import com.study.free.service.FreeBoardServiceImpl;
 import com.study.free.service.IFreeBoardService;
 import com.study.free.vo.FreeBoardVO;
@@ -18,6 +19,10 @@ public class FreeRegist implements Handler {
         req.setAttribute("freeBoard",freeBoard);
         IFreeBoardService freeBoardService=new FreeBoardServiceImpl();
         freeBoardService.registBoard(freeBoard);
-        return  "free/freeRegist";
+        ResultMessageVO resultMessageVO=new ResultMessageVO();
+        resultMessageVO.messageSetting
+                (true,"free regist 등록" , "성공" , "/free/freeList.wow" , "목록으로");
+        req.setAttribute("resultMessageVO",resultMessageVO);
+        return "common/message";
     }
 }

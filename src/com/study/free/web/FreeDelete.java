@@ -1,5 +1,6 @@
 package com.study.free.web;
 
+import com.study.common.vo.ResultMessageVO;
 import com.study.exception.BizPasswordNotMatchedException;
 import com.study.free.service.FreeBoardServiceImpl;
 import com.study.free.service.IFreeBoardService;
@@ -21,9 +22,19 @@ public class FreeDelete implements Handler {
         IFreeBoardService freeBoardService = new FreeBoardServiceImpl();
         try {
             freeBoardService.removeBoard(freeBoard);
+            ResultMessageVO resultMessageVO=new ResultMessageVO();
+            resultMessageVO.messageSetting
+                    (true,"freeDelte 삭제" , "성공" , "/free/freeList.wow" , "목록으로");
+            req.setAttribute("resultMessageVO",resultMessageVO);
+
+            return "common/message";
         } catch (BizPasswordNotMatchedException bnf) {
-            req.setAttribute("bnf", bnf);
+            ResultMessageVO resultMessageVO=new ResultMessageVO();
+            resultMessageVO.messageSetting
+                    (false,"freeDelte 삭제" , "실패했습니다." , "/free/freeList.wow" , "목록으로");
+            req.setAttribute("resultMessageVO",resultMessageVO);
+
+            return "common/message";
         }
-        return "free/freeDelete";
     }
 }

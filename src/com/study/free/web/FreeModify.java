@@ -1,5 +1,6 @@
 package com.study.free.web;
 
+import com.study.common.vo.ResultMessageVO;
 import com.study.exception.BizPasswordNotMatchedException;
 import com.study.free.service.FreeBoardServiceImpl;
 import com.study.free.service.IFreeBoardService;
@@ -21,9 +22,19 @@ public class FreeModify  implements Handler {
         IFreeBoardService freeBoardService = new FreeBoardServiceImpl();
         try {
             freeBoardService.modifyBoard(freeBoard);
+            ResultMessageVO resultMessageVO=new ResultMessageVO();
+            resultMessageVO.messageSetting
+                    (true,"free modify 수정" , "성공" , "/free/freeList.wow" , "목록으로");
+            req.setAttribute("resultMessageVO",resultMessageVO);
+
+            return "common/message";
         } catch (BizPasswordNotMatchedException bnf) {
-            req.setAttribute("bnf", bnf);
+            ResultMessageVO resultMessageVO=new ResultMessageVO();
+            resultMessageVO.messageSetting
+                    (true,"free modify 수" , "실패" , "/free/freeList.wow" , "목록으로");
+            req.setAttribute("resultMessageVO",resultMessageVO);
+
+            return "common/message";
         }
-        return  "free/freeModify";
     }
 }
