@@ -7,6 +7,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.Arrays;
+import java.util.Properties;
+import java.util.Stack;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -19,7 +21,6 @@ public class Main {
 
         //Class clazzFree= Class.forName("com.study.free.vo.FreeBoardVO");
         Class clazzFree= MemberVO.class;
-
         //현재 class의 이름
         System.out.println("clazzFree 이름 : " + clazzFree.getName());
         System.out.println("clazzFree 간단이름 : " + clazzFree.getSimpleName());
