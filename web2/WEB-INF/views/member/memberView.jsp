@@ -65,11 +65,11 @@
         </tr>
         <tr>
             <th>직업</th>
-            <td>${member.memJob}</td>
+            <td>${member.memJobNm}</td>
         </tr>
         <tr>
             <th>취미</th>
-            <td>${member.memHobby}</td>
+            <td>${member.memHobbyNm}</td>
         </tr>
         <tr>
             <th>마일리지</th>

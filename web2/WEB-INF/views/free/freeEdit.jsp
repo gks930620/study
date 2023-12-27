@@ -59,12 +59,11 @@
                     <th>분류</th>
                     <td><select name="boCategory" class="form-control input-sm" required="required">
                         <option value="">-- 선택하세요--</option>
-                        <option value="BC01"  ${freeBoard.boCategory eq "BC01" ? "selected='selected'" : ""} >프로그램
-                        </option>
-                        <option value="BC02" ${freeBoard.boCategory eq "BC02" ? "selected='selected'" : ""} >웹</option>
-                        <option value="BC03" ${freeBoard.boCategory eq "BC03" ? "selected='selected'" : ""} >사는 이야기
-                        </option>
-                        <option value="BC04" ${freeBoard.boCategory eq "BC04" ? "selected='selected'" : ""} >취업</option>
+                        <c:forEach items="${cateList}" var="category">
+                            <option value="${category.commCd}" ${freeBoard.boCategory eq category.commCd   ? "selected='selected'" : ""}   >
+                                    ${category.commNm}
+                            </option>
+                        </c:forEach>
                     </select></td>
                 </tr>
                 <tr>

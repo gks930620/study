@@ -22,18 +22,11 @@ public class MemberModify implements Handler {
 
         IMemberService memberService = new MemberServiceImpl();
 
-        try {
-            memberService.modifyMember(member);
-            ResultMessageVO resultMessageVO = new ResultMessageVO();
-            resultMessageVO.messageSetting(true, "memberModify 성공", "성공", "/member/memberList.wow", "목록으로 이동");
-            req.setAttribute("resultMessageVO", resultMessageVO);
-            return "common/message";
-        } catch (BizPasswordNotMatchedException bnf){
-            ResultMessageVO resultMessageVO = new ResultMessageVO();
-            resultMessageVO.messageSetting(false, "memberModify 실패", "실패", "/member/memberList.wow", "목록으로 이동");
-            req.setAttribute("resultMessageVO", resultMessageVO);
-            return "common/message";
-        }
+        memberService.modifyMember(member);
+        ResultMessageVO resultMessageVO = new ResultMessageVO();
+        resultMessageVO.messageSetting(true, "memberModify 성공", "성공", "/member/memberList.wow", "목록으로 이동");
+        req.setAttribute("resultMessageVO", resultMessageVO);
+        return "common/message";
 
     }
 }

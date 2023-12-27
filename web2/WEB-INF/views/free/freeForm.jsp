@@ -42,11 +42,10 @@
 			<td>
 				<select name="boCategory" class="form-control input-sm" required="required">
 					<option value="">-- 선택하세요--</option>					
-          <option value="BC01">프로그램</option>
-          <option value="BC02">웹</option>
-          <option value="BC03">사는 이야기</option>
-          <option value="BC04">취업</option>
-				</select>	
+					<c:forEach items="${cateList}" var="category">
+						<option value="${category.commCd}">${category.commNm}</option>
+					</c:forEach>
+				</select>
 			</td>
 		</tr>
 					

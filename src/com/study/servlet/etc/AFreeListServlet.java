@@ -20,12 +20,12 @@ public class AFreeListServlet  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //freeList에 필요한 데이터 얻기
-        IFreeBoardService freeBoardService=new FreeBoardServiceImpl();
-        List<FreeBoardVO> freeBoardList=freeBoardService.getBoardList();
-        req.setAttribute("freeBoardList",freeBoardList);
-        //freeList.jsp로 포워딩
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/free/freeList.jsp");
-        requestDispatcher.forward(req,resp);
+//        IFreeBoardService freeBoardService=new FreeBoardServiceImpl();
+//        List<FreeBoardVO> freeBoardList=freeBoardService.getBoardList(pa);
+//        req.setAttribute("freeBoardList",freeBoardList);
+//        //freeList.jsp로 포워딩
+//        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/free/freeList.jsp");
+//        requestDispatcher.forward(req,resp);
     }
 
 

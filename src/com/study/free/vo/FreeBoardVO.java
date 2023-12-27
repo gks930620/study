@@ -4,7 +4,6 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class FreeBoardVO {
-
     private int boNo;                       /* 글 번호 */
     private String boTitle;                 /* 글 제목 */
     private String boCategory;              /* 글 분류 코드 */
@@ -15,6 +14,9 @@ public class FreeBoardVO {
     private String boRegDate;               /* 등록 일자 */
     private String boModDate;               /* 수정 일자 */
     private String boDelYn;                 /* 삭제 여부 */
+
+    private  String boCategoryNm;           /*글분류 이름 ,get/set만들어라 */
+
 
     @Override
     public String toString() {
@@ -100,5 +102,14 @@ public class FreeBoardVO {
 
     public void setBoDelYn(String boDelYn) {
         this.boDelYn = boDelYn;
+    }
+
+
+    public String getBoCategoryNm() {
+        return boCategoryNm;
+    }
+
+    public void setBoCategoryNm(String boCategoryNm) {
+        this.boCategoryNm = boCategoryNm;
     }
 }

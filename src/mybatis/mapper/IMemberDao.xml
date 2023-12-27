@@ -8,22 +8,37 @@
              , TO_CHAR(mem_bir, 'YYYY-MM-DD') AS mem_bir, mem_zip  , mem_add1
              , mem_add2                                 , mem_hp   , mem_mail
              , mem_job                                  , mem_hobby, mem_mileage
+             , b.comm_nm AS mem_job_nm
+             , c.comm_nm AS mem_hobby_nm
              , mem_del_yn
         FROM
-            member
+            member a, comm_code b, comm_code c
         WHERE mem_del_yn = 'N'
+        AND a.mem_job=b.comm_cd
+        AND a.mem_hobby= c.comm_cd
     </select>
 
     <select id="getMember" resultType="com.study.member.vo.MemberVO" parameterType="string">
-        SELECT
-            mem_id                                   ,mem_pass  , mem_name
-             , TO_CHAR(mem_bir, 'YYYY-MM-DD') AS mem_bir, mem_zip  , mem_add1
-             , mem_add2                                 , mem_hp   , mem_mail
-             , mem_job                                  , mem_hobby, mem_mileage
+        SELECT mem_id
+             , mem_pass
+             , mem_name
+             , TO_CHAR(mem_bir, 'YYYY-MM-DD') AS mem_bir
+             , mem_zip
+             , mem_add1
+             , mem_add2
+             , mem_hp
+             , mem_mail
+             , mem_job
+             , mem_hobby
+             , mem_mileage
+             , b.comm_nm                      AS mem_job_nm
+             , c.comm_nm                      AS mem_hobby_nm
              , mem_del_yn
         FROM
-            member
+            member a, comm_code b, comm_code c
         WHERE mem_id = #{memId}
+          AND a.mem_job=b.comm_cd
+          AND a.mem_hobby= c.comm_cd
     </select>
 
     <update id="updateMember" parameterType="com.study.member.vo.MemberVO">

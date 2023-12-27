@@ -57,7 +57,7 @@
                         ${member.memName}</a></td>
                 <td>${member.memHp}</td>
                 <td>${member.memBir}</td>
-                <td>${member.memJob}</td>
+                <td>${member.memJobNm}</td>
                 <td>${member.memMileage}</td>
             </tr>
         </c:forEach>

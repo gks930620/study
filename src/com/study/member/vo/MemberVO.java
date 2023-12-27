@@ -18,8 +18,28 @@ public class MemberVO {
     private int memMileage;      /* 회원마일리지 */
     private String memDelYn;     /* 회원삭제여부 */
 
+    private String memJobNm;
+    private String memHobbyNm;
+
     public MemberVO (){
 
+    }
+
+
+    public String getMemJobNm() {
+        return memJobNm;
+    }
+
+    public void setMemJobNm(String memJobNm) {
+        this.memJobNm = memJobNm;
+    }
+
+    public String getMemHobbyNm() {
+        return memHobbyNm;
+    }
+
+    public void setMemHobbyNm(String memHobbyNm) {
+        this.memHobbyNm = memHobbyNm;
     }
 
     public MemberVO(String memId, String memPass, String memName, String memBir, String memZip, String memAdd1, String memAdd2, String memHp, String memMail, String memJob, String memHobby, int memMileage, String memDelYn) {

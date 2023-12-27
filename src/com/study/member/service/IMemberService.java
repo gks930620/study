@@ -13,9 +13,9 @@ public interface IMemberService {
 
     public MemberVO getMember(String memId) throws BizNotFoundException;
 
-    public void modifyMember(MemberVO member) throws BizPasswordNotMatchedException;
+    public void modifyMember(MemberVO member) ;
 
-    public void removeMember(MemberVO member) throws BizPasswordNotMatchedException;
+    public void removeMember(MemberVO member) ;
 
     public void registMember(MemberVO member) throws BizDuplicateKeyException;
 }

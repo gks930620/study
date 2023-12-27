@@ -87,6 +87,13 @@
                             <option value="JB07" ${member.memJob eq "JB07" ? "selected='seleted'" : "" }>자영업</option>
                             <option value="JB08" ${member.memJob eq "JB08" ? "selected='seleted'" : "" }>학생</option>
                             <option value="JB09" ${member.memJob eq "JB09" ? "selected='seleted'" : "" }>교사</option>
+
+                            <c:forEach items="${jobList}" var="job">
+                                <option value="${job.commCd}"
+                                    ${member.memJob eq job.commCd ? "selected='seleted'" : "" }
+                                >${job.commNm}</option>
+                            </c:forEach>
+
                         </select>
                     </td>
                 </tr>
@@ -96,20 +103,9 @@
 
                         <select name="memHobby" class="form-control input-sm">
                             <option value="">-- 취미 선택 --</option>
-                            <option value="HB01" ${member.memHobby eq "HB01" ? "selected='selected'" : ""}>서예</option>
-                            <option value="HB02" ${member.memHobby eq "HB02" ? "selected='selected'" : ""}>장기</option>
-                            <option value="HB03" ${member.memHobby eq "HB03" ? "selected='selected'" : ""}>수영</option>
-                            <option value="HB04" ${member.memHobby eq "HB04" ? "selected='selected'" : ""}>독서</option>
-                            <option value="HB05" ${member.memHobby eq "HB05" ? "selected='selected'" : ""}>당구</option>
-                            <option value="HB06" ${member.memHobby eq "HB06" ? "selected='selected'" : ""}>바둑</option>
-                            <option value="HB07" ${member.memHobby eq "HB07" ? "selected='selected'" : ""}>볼링</option>
-                            <option value="HB08" ${member.memHobby eq "HB08" ? "selected='selected'" : ""}>스키</option>
-                            <option value="HB09" ${member.memHobby eq "HB09" ? "selected='selected'" : ""}>만화</option>
-                            <option value="HB10" ${member.memHobby eq "HB10" ? "selected='selected'" : ""}>낚시</option>
-                            <option value="HB11" ${member.memHobby eq "HB11" ? "selected='selected'" : ""}>영화감상</option>
-                            <option value="HB12" ${member.memHobby eq "HB12" ? "selected='selected'" : ""}>등산</option>
-                            <option value="HB13" ${member.memHobby eq "HB13" ? "selected='selected'" : ""}>개그</option>
-                            <option value="HB14" ${member.memHobby eq "HB14" ? "selected='selected'" : ""}>카레이싱</option>
+                            <c:forEach items="${hobbyList}" var="hobby">
+                                <option value="${hobby.commCd}" ${member.memHobby eq hobby.commCd ? "selected='selected'" : ""}  >${hobby.commNm}</option>
+                            </c:forEach>
                         </select>
                     </td>
                 </tr>

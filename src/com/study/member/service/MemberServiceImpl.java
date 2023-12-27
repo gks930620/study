@@ -36,30 +36,20 @@ public class MemberServiceImpl implements IMemberService {
     }
 
     @Override
-    public void modifyMember(MemberVO member) throws BizPasswordNotMatchedException {
+    public void modifyMember(MemberVO member)  {
         try (SqlSession session = sqlSessionFactory.openSession(true)) {    // try-with resource
             IMemberDao memberDao = session.getMapper(IMemberDao.class);
             MemberVO vo = memberDao.getMember(member.getMemId());
-
-            if (vo.getMemPass().equals(member.getMemPass())) {
                 memberDao.updateMember(member);
-            } else {
-                throw new BizPasswordNotMatchedException("member update 비밀번호 틀림. 사용자 아님");
-            }
         }
     }
 
     @Override
-    public void removeMember(MemberVO member) throws BizPasswordNotMatchedException {
+    public void removeMember(MemberVO member)  {
         try (SqlSession session = sqlSessionFactory.openSession(true)) {    // try-with resource
             IMemberDao memberDao = session.getMapper(IMemberDao.class);
             MemberVO vo = memberDao.getMember(member.getMemId());
-
-            if (vo.getMemPass().equals(member.getMemPass())) {
                 memberDao.deleteMember(member);
-            } else {
-                throw new BizPasswordNotMatchedException("member delete 비밀번호 틀림. 사용자 아님");
-            }
         }
     }
 

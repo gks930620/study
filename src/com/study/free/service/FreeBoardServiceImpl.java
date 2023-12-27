@@ -1,9 +1,11 @@
 package com.study.free.service;
 
 import com.study.common.util.MybatisSqlSessionFactory;
+import com.study.common.vo.PagingVO;
 import com.study.exception.BizNotFoundException;
 import com.study.exception.BizPasswordNotMatchedException;
 import com.study.free.dao.IFreeBoardDao;
+import com.study.free.vo.FreeBoardSearchVO;
 import com.study.free.vo.FreeBoardVO;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,10 +17,13 @@ public class FreeBoardServiceImpl implements IFreeBoardService {
     SqlSessionFactory sqlSessionFactory = MybatisSqlSessionFactory.getSqlSessionFactory();
 
     @Override
-    public List<FreeBoardVO> getBoardList() {
+    public List<FreeBoardVO> getBoardList(PagingVO paging, FreeBoardSearchVO search) {
         try (SqlSession session = sqlSessionFactory.openSession(true)) {  // try-with resource
             IFreeBoardDao freeBoardDao = session.getMapper(IFreeBoardDao.class);
-            return freeBoardDao.getBoardList();
+            int totalRowCount=freeBoardDao.getTotalRowCount(paging , search);
+            paging.setTotalRowCount(totalRowCount);   //pagingCount로 세팅하면 콱
+            paging.pageSetting();
+            return freeBoardDao.getBoardList(paging, search);
         }
     }
 

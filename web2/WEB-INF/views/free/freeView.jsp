@@ -37,7 +37,7 @@
             </tr>
             <tr>
                 <th>글분류</th>
-                <td>${freeBoard.boCategory}</td>
+                <td>${freeBoard.boCategoryNm}</td>
             </tr>
             <tr>
                 <th>작성자명</th>

@@ -21,17 +21,10 @@ public class MemberDelete implements Handler {
 
         IMemberService memberService = new MemberServiceImpl();
 
-        try {
             memberService.removeMember(member);
             ResultMessageVO resultMessageVO = new ResultMessageVO();
             resultMessageVO.messageSetting(true, "memberDelete 성공", "성공", "/member/memberList.wow", "목록으로 이동");
             req.setAttribute("resultMessageVO", resultMessageVO);
             return "common/message";
-        } catch (BizPasswordNotMatchedException bnf){
-            ResultMessageVO resultMessageVO = new ResultMessageVO();
-            resultMessageVO.messageSetting(false, "memberDelete 실패", "실패", "/member/memberList.wow", "목록으로 이동");
-            req.setAttribute("resultMessageVO", resultMessageVO);
-            return "common/message";
         }
-    }
 }
